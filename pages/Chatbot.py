@@ -40,6 +40,10 @@ my_button=st.button('Click for a suprise!')
 if my_button:
     st.balloons()
 
+customise_button = st.button("Customise me!")
+if customise_button:
+    st.switch_page("./pages/Settings.py")
+
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
     st.session_state.chat_history.append({
