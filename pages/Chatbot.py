@@ -6,6 +6,7 @@ from azure.core.credentials import AzureKeyCredential
 from azure.search.documents import SearchClient
 from openai import AzureOpenAI
 from safety import saftey_checker, verify_scores, extract_summary_scores
+import traceback
 
 load_dotenv()
 
@@ -88,6 +89,7 @@ if user_input:
                     except Exception as e:
                         llm_response = f"An error occurred: {str(e)}"
                         st.error(llm_response)
+                        st.text(traceback.format_exc())
 
                     st.markdown(llm_response)
 
